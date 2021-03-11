@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import { Router } from '@reach/router';
+import Home from './components/Home';
+import Number from './components/Number';
+import Word from './components/Word';
+import Colored from './components/Colored'
 
 function App() {
+  const Data = {
+    word: "hello",
+    id: "4"
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Home path = "/home"/>
+        <Number path = "/:id"/>
+        <Word path = "/:word"/>
+        <Colored path = "/:word/blue/red"/>
+      </Router>
     </div>
   );
 }
